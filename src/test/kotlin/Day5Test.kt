@@ -17,8 +17,14 @@ class Day5Test {
 
         instructions.forEach { instruction ->
             for (i in 1..instruction.move) {
-                val crate = cargo.stacks[instruction.from]!!.pop()
-                cargo.stacks[instruction.to]!!.push(crate)
+
+                if (instruction.move == 1) {
+                    val crate = cargo.stacks[instruction.from]!!.pop()
+                    cargo.stacks[instruction.to]!!.push(crate)
+                } else {
+                    val crate = cargo.stacks[instruction.from]!!.removeAt(instruction.move - i)
+                    cargo.stacks[instruction.to]!!.push(crate)
+                }
             }
         }
 

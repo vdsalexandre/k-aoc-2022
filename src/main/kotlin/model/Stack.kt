@@ -9,6 +9,8 @@ class Stack {
 
     fun pop() = crates.removeLast()
 
+    fun removeAt(index: Int) = crates.removeAt(crates.lastIndex - index)
+
     fun last() = crates.last()
 
     fun isEmpty() = crates.isEmpty()
